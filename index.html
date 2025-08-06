@@ -1598,42 +1598,7 @@
         });
         
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const submitBtn = document.getElementById('submitBtn');
-            
-            submitBtn.addEventListener('click', function() {
-                // الحصول على القيم من حقول الإدخال
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-                const amount = document.getElementById('amount').value;
-                const story = document.getElementById('story').value;
-                
-                // التحقق من إدخال جميع الحقول المطلوبة
-                if (!name || !email || !phone || !amount || !story) {
-                    alert('يرجى ملء جميع الحقول المطلوبة');
-                    return;
-                }
-                
-                // إنشاء محتوى البريد الإلكتروني
-                const subject = 'طلب استرجاع أموال - ' + name;
-                let body = 'الاسم بالكامل: ' + name + '%0D%0A';
-                body += 'البريد الإلكتروني: ' + email + '%0D%0A';
-                body += 'رقم الهاتف: ' + phone + '%0D%0A';
-                body += 'المبلغ المسروق (ريال قطري): ' + amount + '%0D%0A';
-                body += 'تفاصيل السرقة:%0D%0A' + story + '%0D%0A%0D%0A';
-                body += '---%0D%0Aتم إرسال هذا الطلب عبر نموذج استرجاع الأموال';
-                
-                // إنشاء رابط mailto
-                const mailtoLink = 'mailto:Onehotelonehotel@gmail.com?subject=' + 
-                                  encodeURIComponent(subject) + 
-                                  '&body=' + encodeURIComponent(body);
-                
-                // فتح تطبيق البريد الإلكتروني
-                window.location.href = mailtoLink;
-            });
-        });
-    
+        
         
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
