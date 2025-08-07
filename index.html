@@ -576,7 +576,44 @@
         .submit-btn i {
             margin-left: 10px;
         }
-        
+            .message {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      display: none;
+    }
+    
+    .message i {
+      margin-left: 10px;
+      font-size: 1.5rem;
+    }
+    
+    .loading-message {
+      background-color: #d6eaf8;
+      color: var(--secondary);
+    }
+    
+    .success-message {
+      background-color: #d5f5e3;
+      color: var(--success);
+    }
+    
+    .error-message {
+      background-color: #fadbd8;
+      color: var(--accent);
+    }
+           /* الرسوم المتحركة */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .pulse {
+      animation: pulse 2s infinite;
+    }
         /* Testimonials - Compact with all testimonials */
         .testimonials {
             padding: 80px 0;
